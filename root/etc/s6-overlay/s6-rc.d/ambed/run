@@ -1,0 +1,5 @@
+#!/command/with-contenv sh
+
+IP=$( hostname -I )
+
+exec /ambed/ambed ${IP}
