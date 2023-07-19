@@ -12,6 +12,8 @@ This is a currently a single-arch image and will only run on amd64 devices.
 
 ambed-docker requires full access to your local devices to access AMBE vocoder usb dongles which can be achieved using the ```--priviliged``` flag.
 
+Intended to run along side [xlxd-docker](https://github.com/mfiscus/xlxd-docker)
+
 **This image will only work when using [Docker for Linux](https://docs.docker.com/desktop/install/linux-install/)
 
 ## Usage
