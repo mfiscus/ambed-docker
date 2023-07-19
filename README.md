@@ -1,2 +1,2 @@
-# xlxd-docker
-Containerized XLX Multiprotocol Gateway Reflector Server
+# ambed-docker
+Containerized AMBEd Transcode Server
