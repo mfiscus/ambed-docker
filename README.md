@@ -2,7 +2,7 @@
 
 This Ubuntu Linux based Docker image allows you to run [LX3JL's](https://github.com/LX3JL) [AMBEd](https://github.com/LX3JL/xlxd/tree/master/ambed) without having to compile any code.
 
-This is a currently a single-arch image and will only run on x86_64 devices.
+This is a currently a single-arch image and will only run on amd64 devices.
 
 | Image Tag             | Architectures           | Base Image         | 
 | :-------------------- | :-----------------------| :----------------- | 
