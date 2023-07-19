@@ -3,13 +3,10 @@ FROM amd64/ubuntu:latest AS base
 
 ENTRYPOINT ["/init"]
 
-ENV TERM="xterm" LANG="C.UTF-8" LC_ALL="C.UTF-8" TZ="America/Phoenix" UDEV=1
+ENV TERM="xterm" LANG="C.UTF-8" LC_ALL="C.UTF-8"
 ARG ARCH=x86_64 S6_OVERLAY_VERSION=3.1.5.0 S6_RCD_DIR=/etc/s6-overlay/s6-rc.d S6_LOGGING=1 S6_KEEP_ENV=1
 ARG AMBED_DIR=/ambed AMBED_INST_DIR=/src/ambed
 ARG FTDI_INST_DIR=/src/ftdi
-
-# set timezone
-RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone
 
 # install dependencies
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
