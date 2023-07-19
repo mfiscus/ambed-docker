@@ -14,12 +14,8 @@ services:
   ambed:
     image: mfiscus/ambed:latest
     container_name: ambed
-    domainname: kk7mnz.com
     hostname: ambed_container
     networks:
       - proxy
     privileged: true # Necessary for accessing AMBE usb dongle(s)
-    dns:
-      - 1.1.1.1
-    dns_search: kk7mnz.com
     restart: unless-stopped
