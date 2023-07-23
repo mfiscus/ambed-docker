@@ -5,7 +5,7 @@ ENTRYPOINT ["/init"]
 
 ENV TERM="xterm" LANG="C.UTF-8" LC_ALL="C.UTF-8"
 ARG ARCH=x86_64 S6_OVERLAY_VERSION=3.1.5.0 S6_RCD_DIR=/etc/s6-overlay/s6-rc.d S6_LOGGING=1 S6_KEEP_ENV=1
-ARG AMBED_DIR=/ambed AMBED_INST_DIR=/src/ambed
+ARG AMBED_DIR=/ambed AMBED_INST_DIR=/src/ambed USE_AGC=1
 ARG FTDI_INST_DIR=/src/ftdi
 
 # install dependencies
@@ -50,6 +50,10 @@ RUN tar -C ${FTDI_INST_DIR} -zxvf /tmp/libftd2xx-${ARCH}-*.tgz
 RUN cp ${FTDI_INST_DIR}/release/build/libftd2xx.* /usr/local/lib && \
     chmod 0755 /usr/local/lib/libftd2xx.so.* && \
     ln -sf /usr/local/lib/libftd2xx.so.* /usr/local/lib/libftd2xx.so
+
+# Perform pre-compiliation configurations
+RUN sed "s/\(USE_AGC[[:space:]]*\)[[:digit:]]/\1${USE_AGC}/g" ${AMBED_INST_DIR}${AMBED_DIR}/main.h && \
+    cp ${AMBED_INST_DIR}${AMBED_DIR}/main.h ${AMBED_DIR}/main.h.customized
 
 # Compile and install AMBE server
 RUN cd ${AMBED_INST_DIR}${AMBED_DIR} && \
