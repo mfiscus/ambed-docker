@@ -5,7 +5,7 @@ ENTRYPOINT ["/init"]
 
 ENV TERM="xterm" LANG="C.UTF-8" LC_ALL="C.UTF-8"
 ARG ARCH=x86_64 S6_OVERLAY_VERSION=3.1.5.0 S6_RCD_DIR=/etc/s6-overlay/s6-rc.d S6_LOGGING=1 S6_KEEP_ENV=1
-ARG AMBED_DIR=/ambed AMBED_INST_DIR=/src/ambed USE_AGC=1
+ARG AMBED_DIR=/ambed AMBED_INST_DIR=/src/ambed USE_AGC=0
 ARG FTDI_INST_DIR=/src/ftdi
 
 # install dependencies
